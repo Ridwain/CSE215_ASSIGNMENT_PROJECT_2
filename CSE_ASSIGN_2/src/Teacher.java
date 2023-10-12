@@ -1,4 +1,4 @@
-public class Teacher extends User{
+public class Teacher extends User implements Action{
     public Teacher() {
 
     }
@@ -8,4 +8,14 @@ public class Teacher extends User{
         this.setId(id);
         this.setName(name);
     }
+
+    @Override
+    public void handleActions() {
+        System.out.println("1: View Courses  2: Log out");
+    }
+    @Override
+    public void viewCourse() {
+
+    }
+
 }

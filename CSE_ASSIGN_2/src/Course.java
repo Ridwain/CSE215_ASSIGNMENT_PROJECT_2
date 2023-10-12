@@ -19,12 +19,52 @@ public class Course {
 
     }
 
+    public String getIndex() {
+        return index;
+    }
+
+    public void setIndex(String index) {
+        this.index = index;
+    }
+
+    public String getSection() {
+        return section;
+    }
+
+    public void setSection(String section) {
+        this.section = section;
+    }
+
+    public String getTiming() {
+        return timing;
+    }
+
+    public void setTiming(String timing) {
+        this.timing = timing;
+    }
+
+    public String getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(String teacher) {
+        this.teacher = teacher;
+    }
+
     public String getCourseName() {
         return courseName;
     }
 
     public void setCourseName(String courseName) {
         this.courseName = courseName;
+    }
+
+    public String getTA() {
+        return tA;
+    }
+
+    public void setTA(String tA) {
+        this.tA = tA;
     }
 }
 

@@ -1,4 +1,4 @@
-public class Assistant extends User{
+public class Assistant extends User implements Action{
     public Assistant(){
 
     }
@@ -7,5 +7,14 @@ public class Assistant extends User{
         this.setPassword(password);
         this.setId(id);
         this.setName(name);
+    }
+
+    @Override
+    public void handleActions() {
+        System.out.println("1: View Courses  2: Log out");
+    }
+    @Override
+    public void viewCourse() {
+
     }
 }

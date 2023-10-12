@@ -10,13 +10,6 @@ public class Session {
         createDatabase();
     }
     private void createDatabase(){
-//        userList[0] = new User();
-//        userList[1] = new User("student_b@northsouth.edu","password","S2","B","3.4");
-//        userList[2] = new User();
-//        userList[3] = new User("teacher_a@northsouth.edu","password","T1","A","3.4");
-//        userList[4] = new User("teacher_b@northsouth.edu","password","T1","B","3.4");
-//        userList[5] = new User("assistant_a@northsouth.edu","password","A1","A","3.4");
-//        userList[6] = new User();
 
         userList[0]= new Student("student_a@northsouth.edu","password","S1","A","3.4");
         userList[1]= new Student("student_b@northsouth.edu","password","S2","B","3.4");
