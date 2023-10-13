@@ -69,7 +69,8 @@ public class CourseManagement {
 
     }
     public static void addCourse(Student student,Course course){
-        System.out.println(student.getEmail()+" "+course.getCourseName());
+        System.out.println(course.getCourseName());
+
     }
     public static void removeCourse(Student student,Course course){
 

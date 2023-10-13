@@ -26,8 +26,6 @@ public class Session {
         courseList[3] = new Course("4","Course B","1","D","T1","A");
         courseList[4] = new Course("5","Course C","1","B","T2","A");
         courseList[5] = new Course("6","Course C","2","C","T1","B");
-
-
     }
     public static Session getSession(){
         if(session == null) {

@@ -66,5 +66,6 @@ public class Course {
     public void setTA(String tA) {
         this.tA = tA;
     }
+
 }
 
