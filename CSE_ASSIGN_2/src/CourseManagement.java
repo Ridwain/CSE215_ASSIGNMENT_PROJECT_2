@@ -25,15 +25,19 @@ public class CourseManagement {
                             System.out.print("Index of Course to be added :>");
                             int courseIndex = session.inputScanner.nextInt();
                             if(courseIndex==0){
-                                return;
+                                break;
                             }
                             else{
-                                addCourse(((Student)user),courses[courseIndex]);
+                                addCourse(((Student)user),courses[courseIndex-1]);
+
                             }
 
 
                         } else if (choice == 2) {
                             viewCourse(user);
+                        } else if (choice==3) {
+                           break;
+
                         }
                     }
                 }
@@ -46,7 +50,7 @@ public class CourseManagement {
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
-            break;
+           
         }
     }
     public static User login(String email,String password)throws Exception{
@@ -69,20 +73,20 @@ public class CourseManagement {
 
     }
     public static void addCourse(Student student,Course course){
-        System.out.println(course.getCourseName());
-
+        Student.addCourse(student,course);
     }
+
     public static void removeCourse(Student student,Course course){
 
     }
     public static void viewCourse(User user){
         if(user instanceof Student){
-            ((Student)user).viewCourse();
+            ((Student)user).viewCourse( user);
         } else if (user instanceof Teacher) {
-            ((Teacher)user).viewCourse();
+            ((Teacher)user).viewCourse(user);
         }
         else if (user instanceof Assistant) {
-            ((Assistant)user).viewCourse();
+            ((Assistant)user).viewCourse(user);
         }
     }
 }

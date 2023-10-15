@@ -48,5 +48,5 @@ public abstract class User{
     public void setStudentCGPA(String studentCGPA) {
         this.studentCGPA = studentCGPA;
     }
-    public abstract void viewCourse();
+    public  abstract void viewCourse(User user);
 }

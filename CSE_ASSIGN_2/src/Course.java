@@ -1,4 +1,4 @@
-public class Course {
+public class Course extends Student{
     private String index;
     private String courseName;
     private String section;

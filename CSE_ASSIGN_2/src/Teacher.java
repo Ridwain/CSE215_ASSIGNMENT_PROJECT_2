@@ -14,7 +14,7 @@ public class Teacher extends User implements Action{
         System.out.println("1: View Courses  2: Log out");
     }
     @Override
-    public void viewCourse() {
+    public void viewCourse(User user) {
 
     }
 
