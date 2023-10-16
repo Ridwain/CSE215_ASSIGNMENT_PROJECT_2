@@ -19,9 +19,15 @@ public class Student extends User implements Action {
         this.setName(name);
         this.setStudentCGPA(studentCgpa);
     }
-//    public Course[] getCourseListForStudent1(){
-//        return courseListForStudent1;
-//    }
+    public static Course[] getCourseListForStudent1(){
+        return courseListForStudent1;
+    }
+    public static Course[] getCourseListForStudent2(){
+        return courseListForStudent2;
+    }
+    public static Course[] getCourseListForStudent3(){
+        return courseListForStudent3;
+    }
 
     @Override
     public void handleActions() {
@@ -39,41 +45,16 @@ public class Student extends User implements Action {
     // For printing the Student's enrolled courses-->>
     private void showingEnrolledCourses(Course[] courseListForStudent1,User user) {
         int i;
-        Session session = Session.getSession();
-        while(true) {
-            int isEmpty = checkNUll(courseListForStudent1);
-            if (isEmpty == 0) {
-                System.out.println("No Courses To Show\n1: BACK");
-                int choice = session.inputScanner.nextInt();
-                if(choice == 1){
-                    return;
-                }
-                else{
-                    System.out.println("Wrong input !!!Please Try Again");
-                    //continue;
-                }
-            } else {
-
-                for (i = 0; i < courseListForStudent1.length; i++) {
-                    if (courseListForStudent1[i] != null) {
-                        System.out.println((i) + ". Course Name : " + courseListForStudent1[i].getCourseName() + "." + courseListForStudent1[i].getSection());
-                    }
-                }
-                System.out.println("\n1: Remove Course  2: Back");
-                int choice2 = session.inputScanner.nextInt();
-                if (choice2 == 1) {
-                    System.out.println("Course Index to be Removed : ");
-                    int courseIndex = session.inputScanner.nextInt();
-                    removeCourse((Student) user, courseListForStudent1[courseIndex]);
-
-                } else {
-                    return;
-                }
+        for (i = 0; i < courseListForStudent1.length; i++) {
+            if (courseListForStudent1[i] != null) {
+                System.out.println((i) + ". Course Name : " + courseListForStudent1[i].getCourseName() + "." + courseListForStudent1[i].getSection());
             }
         }
+
     }
+
    // checking the array of courses if it is empty or not
-    private int checkNUll(Course[] courses){
+    public static int checkNUll(Course[] courses){
         int i,flag=0;
         for(i=0;i<courses.length;i++){
             if(courses[i]!=null){

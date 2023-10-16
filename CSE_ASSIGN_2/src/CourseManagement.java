@@ -71,28 +71,77 @@ public class CourseManagement {
 
     // Add course method for students-->>
     public static void addCourse(Student student,Course course){
+
         Student.addCourse(student,course);
+
     }
 
 
-    // Remove course method for students-->>
-    public static void removeCourse(Student student,Course course){
 
-            Student.removeCourse(student,course);
-    }
 
 
     // View Course Method For ALL USERS-->>
     public static void viewCourse(User user){
         if(user instanceof Student){
             Session session = Session.getSession();
-            ((Student)user).viewCourse( user);
+            while(true) {
+                ((Student) user).viewCourse(user);
+                switch (user.getName()) {
+                    case "A" -> {
+                        Course[] courses1 = Student.getCourseListForStudent1();
+                        int isEmpty = Student.checkNUll(Student.getCourseListForStudent1());
+                        if (selectCourseToBeRemoved((Student) user, session, courses1, isEmpty)) return;
+                    }
+                    case "B" -> {
+                        Course[] courses2 = Student.getCourseListForStudent2();
+                        int isEmpty = Student.checkNUll(Student.getCourseListForStudent2());
+                        if (selectCourseToBeRemoved((Student) user, session, courses2, isEmpty)) return;
+                    }
+                    case "C" -> {
+                        Course[] courses3 = Student.getCourseListForStudent3();
+                        int isEmpty = Student.checkNUll(Student.getCourseListForStudent3());
+                        if (selectCourseToBeRemoved((Student) user, session, courses3, isEmpty)) return;
+                    }
+                }
+            }
+
         } else if (user instanceof Teacher) {
             ((Teacher)user).viewCourse(user);
         } else if (user instanceof Assistant) {
             ((Assistant)user).viewCourse(user);
         }
 
+    }
+
+    private static boolean selectCourseToBeRemoved(Student user, Session session, Course[] courses, int isEmpty) {
+        if (isEmpty == 0) {
+            System.out.println("No Courses To Show\n1: BACK");
+            int choice = session.inputScanner.nextInt();
+            if (choice == 1) {
+                return true;
+            } else {
+                System.out.println("Wrong input !!!Please Try Again");
+                //continue;
+            }
+        } else {
+            System.out.println("\n1: Remove Course  2: Back");
+            int choice2 = session.inputScanner.nextInt();
+            if (choice2 == 1) {
+                System.out.println("Course Index to be Removed : ");
+                int courseIndex = session.inputScanner.nextInt();
+                removeCourse(user, courses[courseIndex]);
+            }
+            else if(choice2==2){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // Remove course method for students-->>
+    public static void removeCourse(Student student,Course course){
+
+        Student.removeCourse(student,course);
     }
 
 }
