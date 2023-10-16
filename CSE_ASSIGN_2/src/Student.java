@@ -19,6 +19,9 @@ public class Student extends User implements Action {
         this.setName(name);
         this.setStudentCGPA(studentCgpa);
     }
+    public Course[] getCourseListForStudent1(){
+        return courseListForStudent1;
+    }
 
     @Override
     public void handleActions() {
@@ -27,26 +30,42 @@ public class Student extends User implements Action {
     @Override
     public void viewCourse(User user) {
             int i;
+
             if(user.getName().equals("A")) {
-                for (i = 0; i < courseListForStudent1.length; i++) {
-                    if (courseListForStudent1[i] != null) {
-                        System.out.println("Course Name : " + courseListForStudent1[i].getCourseName() + "." + courseListForStudent1[i].getSection());
-                    }
-                }
+                showingEnrolledCourses(courseListForStudent1);
             } else if (user.getName().equals("B")) {
-                for (i = 0; i < courseListForStudent2.length; i++) {
-                    if (courseListForStudent2[i] != null) {
-                        System.out.println("Course Name : " + courseListForStudent2[i].getCourseName() + "." + courseListForStudent2[i].getSection());
-                    }
-                }
+                showingEnrolledCourses(courseListForStudent2);
             } else if (user.getName().equals("C")) {
-                for (i = 0; i < courseListForStudent3.length; i++) {
-                    if (courseListForStudent3[i] != null) {
-                        System.out.println("Course Name : " + courseListForStudent3[i].getCourseName() + "." + courseListForStudent3[i].getSection());
-                    }
-                }
+                showingEnrolledCourses(courseListForStudent3);
             }
 
+    }
+
+    private void showingEnrolledCourses(Course[] courseListForStudent1) {
+        int i;
+        int isEmpty = checkNUll(courseListForStudent1);
+        if(isEmpty ==0){
+            System.out.println("No Courses To Show");
+        }
+        else {
+            for (i = 0; i < courseListForStudent1.length; i++) {
+                if (courseListForStudent1[i] != null) {
+                    System.out.println((i)+"Course Name : " + courseListForStudent1[i].getCourseName() + "." + courseListForStudent1[i].getSection());
+                }
+            }
+        }
+    }
+   // checking the array of courses if it is empty or not
+    private int checkNUll(Course[] courses){
+        int i,flag=0;
+        for(i=0;i<courses.length;i++){
+            if(courses[i]!=null){
+                flag=1;
+                return flag;
+
+            }
+        }
+        return flag;
     }
 
 
@@ -69,6 +88,7 @@ public class Student extends User implements Action {
                     break;
                 }
             }
+            System.out.println("Successfully Enrolled Course "+courseListForStudent2[i].getCourseName()+"."+courseListForStudent2[i].getSection());
         } else if (student.getName().equals("C")) {
             for (i = 0; i < courseListForStudent3.length; i++) {
                 if (courseListForStudent3[i] == null) {
@@ -76,8 +96,21 @@ public class Student extends User implements Action {
                     break;
                 }
             }
+            System.out.println("Successfully Enrolled Course "+courseListForStudent3[i].getCourseName()+"."+courseListForStudent3[i].getSection());
         }
 
+    }
+    public static void removeCourse(Student student,Course course){
+        int i = 0;
+        if (student.getName().equals("A")) {
+            for(i=0;i<courseListForStudent1.length;i++){
+                if(courseListForStudent1[i]==course){
+                    System.out.println(courseListForStudent1[i].getCourseName()+"."+courseListForStudent1[i].getSection() +" is removed successfully");
+                    courseListForStudent1[i]=null;
+                    break;
+                }
+            }
+        }
 
     }
 }

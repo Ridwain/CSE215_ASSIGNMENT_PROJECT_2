@@ -5,9 +5,9 @@ public class CourseManagement {
         while(true) {
             Session session = Session.getSession();
             System.out.print("Enter Your Email    : ");
-            String email = session.inputScanner.nextLine();
+            String email = session.inputScanner.next();
             System.out.print("Enter Your Password : ");
-            String password = session.inputScanner.nextLine();
+            String password = session.inputScanner.next();
 
             try {
                 User user = login(email,password);
@@ -25,19 +25,15 @@ public class CourseManagement {
                             System.out.print("Index of Course to be added :>");
                             int courseIndex = session.inputScanner.nextInt();
                             if(courseIndex==0){
-                                break;
+                                continue;
                             }
                             else{
                                 addCourse(((Student)user),courses[courseIndex-1]);
-
                             }
-
-
                         } else if (choice == 2) {
                             viewCourse(user);
                         } else if (choice==3) {
                            break;
-
                         }
                     }
                 }
@@ -53,6 +49,8 @@ public class CourseManagement {
            
         }
     }
+
+    // Login Method for everyone...
     public static User login(String email,String password)throws Exception{
         Session session = Session.getSession();
         User[] user =session.getUserList();
@@ -72,21 +70,42 @@ public class CourseManagement {
         }
 
     }
+
+    // Add course method for students...
     public static void addCourse(Student student,Course course){
         Student.addCourse(student,course);
     }
 
-    public static void removeCourse(Student student,Course course){
 
+    //remove course method for students...
+    public static void removeCourse(Student student,Course course){
+            Student.removeCourse(student,course);
     }
+
+
+
     public static void viewCourse(User user){
         if(user instanceof Student){
+            Session session = Session.getSession();
             ((Student)user).viewCourse( user);
+
+            System.out.println("1: Remove Course  2: Back");
+            int choice2 = session.inputScanner.nextInt();
+            if(choice2 == 1){
+                System.out.println("Course Index to be Removed : ");
+                int courseIndex = session.inputScanner.nextInt();
+                Course[] course2=((Student) user).getCourseListForStudent1();
+                removeCourse((Student)user,course2[courseIndex]);
+                return;
+            } else{
+                return;
+            }
         } else if (user instanceof Teacher) {
             ((Teacher)user).viewCourse(user);
-        }
-        else if (user instanceof Assistant) {
+        } else if (user instanceof Assistant) {
             ((Assistant)user).viewCourse(user);
         }
+
     }
+
 }
