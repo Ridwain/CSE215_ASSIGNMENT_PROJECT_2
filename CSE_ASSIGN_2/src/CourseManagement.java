@@ -1,5 +1,3 @@
-import java.net.Socket;
-
 public class CourseManagement {
     public static void main(String[] args) {
         while(true) {
@@ -71,35 +69,24 @@ public class CourseManagement {
 
     }
 
-    // Add course method for students...
+    // Add course method for students-->>
     public static void addCourse(Student student,Course course){
         Student.addCourse(student,course);
     }
 
 
-    //remove course method for students...
+    // Remove course method for students-->>
     public static void removeCourse(Student student,Course course){
+
             Student.removeCourse(student,course);
     }
 
 
-
+    // View Course Method For ALL USERS-->>
     public static void viewCourse(User user){
         if(user instanceof Student){
             Session session = Session.getSession();
             ((Student)user).viewCourse( user);
-
-            System.out.println("1: Remove Course  2: Back");
-            int choice2 = session.inputScanner.nextInt();
-            if(choice2 == 1){
-                System.out.println("Course Index to be Removed : ");
-                int courseIndex = session.inputScanner.nextInt();
-                Course[] course2=((Student) user).getCourseListForStudent1();
-                removeCourse((Student)user,course2[courseIndex]);
-                return;
-            } else{
-                return;
-            }
         } else if (user instanceof Teacher) {
             ((Teacher)user).viewCourse(user);
         } else if (user instanceof Assistant) {

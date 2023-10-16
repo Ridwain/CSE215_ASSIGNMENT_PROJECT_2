@@ -2,13 +2,15 @@ import java.util.Scanner;
 
 public class Session {
     private static Session session = null;
-    private User userList[] =new User[7];
-    private Course courseList[] = new Course[6];
+    private User[] userList =new User[7];
+    private Course[] courseList = new Course[6];
     public Scanner inputScanner = new Scanner(System.in);
 
     private Session(){
         createDatabase();
     }
+
+    // Database
     private void createDatabase(){
 
         userList[0]= new Student("student_a@northsouth.edu","password","S1","A","3.4");
