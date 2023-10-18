@@ -10,30 +10,7 @@ public class CourseManagement {
             try {
                 User user = login(email,password);
                 if(user instanceof Student){
-                    while(true) {
-                        ((Student) user).handleActions();
-                        int choice = session.inputScanner.nextInt();
-                        Course[] courses = session.getCourseList();
-                        int i;
-                        if (choice == 1) {
-                            for(i=0;i< courses.length;i++){
-                                System.out.print((i+1)+". "+courses[i].getCourseName()+"."+courses[i].getSection()+"  ");
-                            }
-                            System.out.println("\nPress 0 to go Back");
-                            System.out.print("Index of Course to be added :>");
-                            int courseIndex = session.inputScanner.nextInt();
-                            if(courseIndex==0){
-                                continue;
-                            }
-                            else{
-                                addCourse(((Student)user),courses[courseIndex-1]);
-                            }
-                        } else if (choice == 2) {
-                            viewCourse(user);
-                        } else if (choice==3) {
-                           break;
-                        }
-                    }
+                    ((Student) user).handleActions();
                 }
                 else if(user instanceof Teacher){
                     ((Teacher)user).handleActions();
@@ -71,9 +48,7 @@ public class CourseManagement {
 
     // Add course method for students-->>
     public static void addCourse(Student student,Course course){
-
         Student.addCourse(student,course);
-
     }
 
 
@@ -140,7 +115,6 @@ public class CourseManagement {
 
     // Remove course method for students-->>
     public static void removeCourse(Student student,Course course){
-
         Student.removeCourse(student,course);
     }
 

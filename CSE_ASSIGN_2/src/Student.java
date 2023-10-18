@@ -5,13 +5,11 @@ public class Student extends User implements Action {
     static Course[] courseListForStudent1 = new Course[5];
     static Course[] courseListForStudent2 = new Course[5];
     static Course[] courseListForStudent3 = new Course[5];
+    private CourseManagement manager;
 
     public Student() {
 
     }
-
-
-
     public Student(String email, String password, String id, String name, String studentCgpa) {
         this.setEmail(email);
         this.setPassword(password);
@@ -31,7 +29,30 @@ public class Student extends User implements Action {
 
     @Override
     public void handleActions() {
-        System.out.println("1: ADD COURSE   2: VIEW COURSE  3:BACK");
+        while (true) {
+            System.out.println("1: ADD COURSE   2: VIEW COURSE  3:BACK");
+            Session session = Session.getSession();
+            int choice = session.inputScanner.nextInt();
+            Course[] courses = session.getCourseList();
+            int i;
+            if (choice == 1) {
+                for (i = 0; i < courses.length; i++) {
+                    System.out.print((i + 1) + ". " + courses[i].getCourseName() + "." + courses[i].getSection() + "  ");
+                }
+                System.out.println("\nPress 0 to go Back");
+                System.out.print("Index of Course to be added :>");
+                int courseIndex = session.inputScanner.nextInt();
+                if (courseIndex == 0) {
+                    continue;
+                } else {
+                    manager.addCourse(this, courses[courseIndex - 1]);
+                }
+            } else if (choice == 2) {
+                manager.viewCourse(this);
+            } else if (choice == 3) {
+                break;
+            }
+        }
     }
     @Override
     public void viewCourse(User user) {

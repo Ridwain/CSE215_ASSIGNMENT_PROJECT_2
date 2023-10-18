@@ -30,7 +30,7 @@ public abstract class User{
     }
 
     public void setId(String id) {
-        Id = id;
+        this.Id = id;
     }
 
     public String getName() {
@@ -38,7 +38,7 @@ public abstract class User{
     }
 
     public void setName(String name) {
-        Name = name;
+        this.Name = name;
     }
 
     public String getStudentCGPA() {

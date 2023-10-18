@@ -66,6 +66,9 @@ public class Course extends Student{
     public void setTA(String tA) {
         this.tA = tA;
     }
+    public void addStudent(Student student){
+
+    }
 
 }
 
