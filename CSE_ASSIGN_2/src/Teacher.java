@@ -1,5 +1,10 @@
+import java.util.ArrayList;
+
 public class Teacher extends User implements Action{
     private CourseManagement manager;
+
+
+
     public Teacher() {
 
     }
@@ -17,6 +22,12 @@ public class Teacher extends User implements Action{
         int choice = session.inputScanner.nextInt();
         if(choice == 1){
             CourseManagement.viewCourse(this);
+            System.out.println("Enter Your Choice : ");
+            int select = session.inputScanner.nextInt();
+            if(select==1){
+                Course.viewStudentList();
+
+            }
         }
     }
     @Override
@@ -42,5 +53,12 @@ public class Teacher extends User implements Action{
         }
 
     }
+    public static void addStudent(Student student){
+    }
+    public static void viewStudentList(){
+
+    }
+
+
 
 }

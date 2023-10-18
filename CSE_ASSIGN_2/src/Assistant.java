@@ -34,7 +34,7 @@ public class Assistant extends User implements Action{
             int j = 1;
             for (Course value : course) {
                 if (value.getTA().equals("B")) {
-                    System.out.print((j) + ". " + value.getCourseName() + " ");
+                    System.out.print((j) + ". " + value.getCourseName() +" ");
                     j++;
                 }
             }

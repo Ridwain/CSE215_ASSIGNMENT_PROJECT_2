@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Course extends Student{
     private String index;
     private String courseName;
@@ -5,6 +7,8 @@ public class Course extends Student{
     private String timing;
     private String teacher;
     private String tA;
+
+
 
     public Course(){
 
@@ -66,9 +70,16 @@ public class Course extends Student{
     public void setTA(String tA) {
         this.tA = tA;
     }
-    public void addStudent(Student student){
+    public static void addStudent(Student student){
 
     }
+    public void removeStudent(Student student){
+
+    }
+    public static void viewStudentList(){
+
+    }
+
 
 }
 
