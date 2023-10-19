@@ -5,7 +5,7 @@ public class Student extends User implements Action {
     static Course[] courseListForStudent1 = new Course[5];
     static Course[] courseListForStudent2 = new Course[5];
     static Course[] courseListForStudent3 = new Course[5];
-    private CourseManagement manager;
+    CourseManagement manager;
 
     public Student() {
 
@@ -71,7 +71,6 @@ public class Student extends User implements Action {
                 System.out.println((i) + ". Course Name : " + courseListForStudent1[i].getCourseName() + "." + courseListForStudent1[i].getSection());
             }
         }
-
     }
 
    // checking the array of courses if it is empty or not
@@ -93,34 +92,47 @@ public class Student extends User implements Action {
         int i;
         switch (student.getName()) {
             case "A" -> {
-                for (i = 0; i < courseListForStudent1.length; i++) {
-                    if (courseListForStudent1[i] == null) {
-                        courseListForStudent1[i] = course;
-                        break;
-                    }
-                }
-                System.out.println("Successfully Enrolled  " + courseListForStudent1[i].getCourseName() + "." + courseListForStudent1[i].getSection());
+                checkingForDuplicateCourseAndTimeClashing(course, courseListForStudent1);
             }
             case "B" -> {
-                for (i = 0; i < courseListForStudent2.length; i++) {
-                    if (courseListForStudent2[i] == null) {
-                        courseListForStudent2[i] = course;
-                        break;
-                    }
-                }
-                System.out.println("Successfully Enrolled  " + courseListForStudent2[i].getCourseName() + "." + courseListForStudent2[i].getSection());
+                checkingForDuplicateCourseAndTimeClashing(course, courseListForStudent2);
             }
             case "C" -> {
-                for (i = 0; i < courseListForStudent3.length; i++) {
-                    if (courseListForStudent3[i] == null) {
-                        courseListForStudent3[i] = course;
-                        break;
-                    }
-                }
-                System.out.println("Successfully Enrolled  " + courseListForStudent3[i].getCourseName() + "." + courseListForStudent3[i].getSection());
+                checkingForDuplicateCourseAndTimeClashing(course, courseListForStudent3);
             }
         }
 
+    }
+
+    private static void checkingForDuplicateCourseAndTimeClashing(Course course, Course[] courseListForStudent) {
+        int i;
+        int flag = checkAlreadyExist(courseListForStudent,course);
+        if(flag==1){
+            System.out.println("Sorry!! This Course Is Already Taken Or The Time Is Clashing With Other Courses");
+            return;
+        }
+        else {
+            for (i = 0; i < courseListForStudent.length; i++) {
+                if (courseListForStudent[i] == null) {
+                    courseListForStudent[i] = course;
+                    break;
+                }
+            }
+            System.out.println("Successfully Enrolled  " + courseListForStudent[i].getCourseName() + "." + courseListForStudent[i].getSection());
+        }
+    }
+
+    public static int checkAlreadyExist(Course[] courseListForStudent,Course course){
+        int flag=0;
+        for(int i=0;i<courseListForStudent.length;i++){
+            if(courseListForStudent[i]!=null) {
+                if (courseListForStudent[i].getTiming().equals(course.getTiming()) || courseListForStudent[i].getCourseName().equals(course.getCourseName())) {
+                    flag=1;
+                    return flag;
+                }
+            }
+        }
+        return flag;
     }
 
     // Method for removing a Course from a student's enrolled courseList-->>
