@@ -1,8 +1,8 @@
 public class Student extends User implements Action {
     //static String[][] student1CourseData = new String[3][4];
-    static Course[] courseListForStudent1 = new Course[5];
-    static Course[] courseListForStudent2 = new Course[5];
-    static Course[] courseListForStudent3 = new Course[5];
+    private static Course[] courseListForStudent1 = new Course[5];
+    public static Course[] courseListForStudent2 = new Course[5];
+    public static Course[] courseListForStudent3 = new Course[5];
     CourseManagement manager;
 
     public Student() {
@@ -87,22 +87,25 @@ public class Student extends User implements Action {
 
     // Add Course Method
     public static void addCourse(Student student, Course course) {
-        int i;
+        //int i;
         switch (student.getName()) {
             case "A" -> {
-                checkingForDuplicateCourseAndTimeClashing(course, courseListForStudent1);
+                checkingForDuplicateCourseAndTimeClashing(student,course, courseListForStudent1);
+                //Course.addStudent(student);
             }
             case "B" -> {
-                checkingForDuplicateCourseAndTimeClashing(course, courseListForStudent2);
+                checkingForDuplicateCourseAndTimeClashing(student,course, courseListForStudent2);
+                //Course.addStudent(student);
             }
             case "C" -> {
-                checkingForDuplicateCourseAndTimeClashing(course, courseListForStudent3);
+                checkingForDuplicateCourseAndTimeClashing(student,course, courseListForStudent3);
+                //Course.addStudent(student);
             }
         }
 
     }
 
-    private static void checkingForDuplicateCourseAndTimeClashing(Course course, Course[] courseListForStudent) {
+    private static void checkingForDuplicateCourseAndTimeClashing(Student student,Course course, Course[] courseListForStudent) {
         int i;
         int flag = checkAlreadyExist(courseListForStudent,course);
         if(flag==1){
@@ -116,6 +119,7 @@ public class Student extends User implements Action {
                     break;
                 }
             }
+
             System.out.println("Successfully Enrolled  " + courseListForStudent[i].getCourseName() + "." + courseListForStudent[i].getSection());
         }
     }
