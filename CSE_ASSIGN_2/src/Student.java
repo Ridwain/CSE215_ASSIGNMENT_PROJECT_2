@@ -1,5 +1,3 @@
-
-
 public class Student extends User implements Action {
     //static String[][] student1CourseData = new String[3][4];
     static Course[] courseListForStudent1 = new Course[5];

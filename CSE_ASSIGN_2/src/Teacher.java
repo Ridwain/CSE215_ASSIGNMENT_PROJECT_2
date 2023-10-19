@@ -3,8 +3,6 @@ import java.util.ArrayList;
 public class Teacher extends User implements Action{
     private CourseManagement manager;
 
-
-
     public Teacher() {
 
     }
