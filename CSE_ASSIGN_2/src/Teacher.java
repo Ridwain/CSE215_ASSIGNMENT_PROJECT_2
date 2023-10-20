@@ -40,9 +40,12 @@ public class Teacher extends User implements Action{
                 System.out.println("\nEnter Your Choice : ");
                 int select = session.inputScanner.nextInt();
                 if (select == 1) {
-                    Course.viewStudentList(courses[1]);
+                    Course.viewStudentList(courses[0]);
                 } else if (select == 2) {
-                    Course.viewStudentList(courses[4]);
+                    Course.viewStudentList(courses[2]);
+                }
+                else if(select == 3){
+                    Course.viewStudentList(courses[3]);
                 }
             } else if (choice == 2) {
                 return;

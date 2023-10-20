@@ -91,7 +91,7 @@ public class Student extends User implements Action {
         switch (student.getName()) {
             case "A" -> {
                 checkingForDuplicateCourseAndTimeClashing(student,course, courseListForStudent1);
-                //Course.addStudent(student);
+                Course.addStudent(student);
             }
             case "B" -> {
                 checkingForDuplicateCourseAndTimeClashing(student,course, courseListForStudent2);
