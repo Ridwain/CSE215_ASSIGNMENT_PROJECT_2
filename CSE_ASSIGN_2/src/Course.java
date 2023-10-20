@@ -75,11 +75,8 @@ public class Course {
     public void setTA(String tA) {
         this.tA = tA;
     }
-    public static void addStudent(Student student){
-        Session session =Session.getSession();
-        Course[] course = Student.getCourseListForStudent1();
+    public static void addStudentForStudentA(Student student,Course[] course){
 
-        //int j=0,k=0,l=0,m=0,n=0,p=0;
         for(int i=0;i<course.length;i++){
             if(course[i]!=null) {
                 if (course[i].getSection().equals("1") && course[i].getCourseName().equals("Course A")) {
@@ -87,7 +84,6 @@ public class Course {
                     if(flag==0) {
                         for (int j = 0; j < studentsCourseA1.length; j++) {
                             if (studentsCourseA1[j] == null) {
-                                System.out.println("ok");
                                 studentsCourseA1[j] = student.getName();
                                 break;
                             } else {
@@ -180,9 +176,22 @@ public class Course {
         }
 
     }
+    public static void addStudent(Student student){
+        Session session = Session.getSession();
+        if(student.getName().equals("A")){
+            addStudentForStudentA(student,student.getCourseListForStudent1());
+        }
+        else if(student.getName().equals("B")){
+            addStudentForStudentA(student,student.getCourseListForStudent2());
+        }
+        else if(student.getName().equals("C")) {
+            addStudentForStudentA(student,student.getCourseListForStudent3());
+        }
+
+
+    }
     public static int checkStudent(String[] studentsCourse,String student){
         int i,flag=0;
-        System.out.println(student);
         for(i=0;i<studentsCourse.length;i++){
             if(studentsCourse[i]==student){
                 flag=1;
@@ -221,7 +230,6 @@ public class Course {
             }
         }
         else if(course.getCourseName().equals("Course B") && course.getSection().equals("1")){
-            System.out.println("ok");
             for (i = 0; i < studentsCourseB1.length; i++) {
                 if (studentsCourseB1[i] != null) {
                     System.out.println(i + ". " + studentsCourseB1[i]);

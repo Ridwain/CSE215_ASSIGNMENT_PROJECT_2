@@ -37,15 +37,12 @@ public class Teacher extends User implements Action{
                     Course.viewStudentList(courses[5]);
                 }
             } else if (this.getName().equals("B")) {
-                System.out.println("\nEnter Your Choice : ");
+                System.out.print("\nEnter Your Choice : ");
                 int select = session.inputScanner.nextInt();
                 if (select == 1) {
-                    Course.viewStudentList(courses[0]);
+                    Course.viewStudentList(courses[1]);
                 } else if (select == 2) {
-                    Course.viewStudentList(courses[2]);
-                }
-                else if(select == 3){
-                    Course.viewStudentList(courses[3]);
+                    Course.viewStudentList(courses[4]);
                 }
             } else if (choice == 2) {
                 return;

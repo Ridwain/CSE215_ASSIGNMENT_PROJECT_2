@@ -95,11 +95,11 @@ public class Student extends User implements Action {
             }
             case "B" -> {
                 checkingForDuplicateCourseAndTimeClashing(student,course, courseListForStudent2);
-                //Course.addStudent(student);
+                Course.addStudent(student);
             }
             case "C" -> {
                 checkingForDuplicateCourseAndTimeClashing(student,course, courseListForStudent3);
-                //Course.addStudent(student);
+                Course.addStudent(student);
             }
         }
 
