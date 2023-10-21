@@ -117,5 +117,4 @@ public class CourseManagement {
     public static void removeCourse(Student student,Course course){
         Student.removeCourse(student,course);
     }
-
 }

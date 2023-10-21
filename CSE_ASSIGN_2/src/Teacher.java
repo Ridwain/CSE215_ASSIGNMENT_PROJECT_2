@@ -1,9 +1,4 @@
-import java.util.ArrayList;
-
 public class Teacher extends User implements Action{
-    private CourseManagement manager;
-
-
     public Teacher() {
 
     }
@@ -18,25 +13,30 @@ public class Teacher extends User implements Action{
     public void handleActions() {
         Session session = Session.getSession();
         Course[] courses = session.getCourseList();
+        User[] users = session.getUserList();
+
         while (true) {
             System.out.println("1: View Courses  2: Log out");
             int choice = session.inputScanner.nextInt();
-
             if (choice == 1) {
-
                 CourseManagement.viewCourse(this);
                 if (this.getName().equals("A")) {
                     System.out.println("\nPress 0 to go back");
                     System.out.print("Enter Your Choice : ");
                     int select = session.inputScanner.nextInt();
                     if (select == 1) {
-                        Course.viewStudentList(courses[0]);
+                            Course.viewStudentList(courses[0]);
+                            Course.sendingStudentToRemove(Course.studentsCourseA1);
+
                     } else if (select == 2) {
                         Course.viewStudentList(courses[2]);
+                        Course.sendingStudentToRemove(Course.studentsCourseA3);
                     } else if (select == 3) {
                         Course.viewStudentList(courses[3]);
+                        Course.sendingStudentToRemove(Course.studentsCourseB1);
                     } else if (select == 4) {
                         Course.viewStudentList(courses[5]);
+                        Course.sendingStudentToRemove(Course.studentsCourseC2);
                     }
                     else if(select==0){
                         return;
@@ -47,11 +47,13 @@ public class Teacher extends User implements Action{
                     int select = session.inputScanner.nextInt();
                     if (select == 1) {
                         Course.viewStudentList(courses[1]);
+                        Course.sendingStudentToRemove(Course.studentsCourseA2);
                     } else if (select == 2) {
                         Course.viewStudentList(courses[4]);
+                        Course.sendingStudentToRemove(Course.studentsCourseC1);
                     }
                     else if(select==0){
-                        return;
+                        continue;
                     }
                 }
 
@@ -81,15 +83,5 @@ public class Teacher extends User implements Action{
                 }
             }
         }
-
     }
-    public static void addStudent(Student student){
-
-    }
-    public static void viewStudentList(){
-
-    }
-
-
-
 }
