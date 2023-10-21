@@ -18,32 +18,43 @@ public class Teacher extends User implements Action{
     public void handleActions() {
         Session session = Session.getSession();
         Course[] courses = session.getCourseList();
-        System.out.println("1: View Courses  2: Log out");
-        int choice = session.inputScanner.nextInt();
+        while (true) {
+            System.out.println("1: View Courses  2: Log out");
+            int choice = session.inputScanner.nextInt();
 
-        if(choice == 1) {
-            CourseManagement.viewCourse(this);
+            if (choice == 1) {
 
-            if (this.getName().equals("A")) {
-                System.out.println("\nEnter Your Choice : ");
-                int select = session.inputScanner.nextInt();
-                if (select == 1) {
-                    Course.viewStudentList(courses[0]);
-                } else if (select == 2) {
-                    Course.viewStudentList(courses[2]);
-                } else if (select == 3) {
-                    Course.viewStudentList(courses[3]);
-                } else if (select == 4) {
-                    Course.viewStudentList(courses[5]);
+                CourseManagement.viewCourse(this);
+                if (this.getName().equals("A")) {
+                    System.out.println("\nPress 0 to go back");
+                    System.out.print("Enter Your Choice : ");
+                    int select = session.inputScanner.nextInt();
+                    if (select == 1) {
+                        Course.viewStudentList(courses[0]);
+                    } else if (select == 2) {
+                        Course.viewStudentList(courses[2]);
+                    } else if (select == 3) {
+                        Course.viewStudentList(courses[3]);
+                    } else if (select == 4) {
+                        Course.viewStudentList(courses[5]);
+                    }
+                    else if(select==0){
+                        return;
+                    }
+                } else if (this.getName().equals("B")) {
+                    System.out.println("\nPress 0 to go back");
+                    System.out.print("Enter Your Choice : ");
+                    int select = session.inputScanner.nextInt();
+                    if (select == 1) {
+                        Course.viewStudentList(courses[1]);
+                    } else if (select == 2) {
+                        Course.viewStudentList(courses[4]);
+                    }
+                    else if(select==0){
+                        return;
+                    }
                 }
-            } else if (this.getName().equals("B")) {
-                System.out.print("\nEnter Your Choice : ");
-                int select = session.inputScanner.nextInt();
-                if (select == 1) {
-                    Course.viewStudentList(courses[1]);
-                } else if (select == 2) {
-                    Course.viewStudentList(courses[4]);
-                }
+
             } else if (choice == 2) {
                 return;
             }

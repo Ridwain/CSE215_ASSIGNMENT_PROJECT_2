@@ -12,10 +12,47 @@ public class Assistant extends User implements Action{
     @Override
     public void handleActions() {
         Session session = Session.getSession();
-        System.out.println("1: View Courses  2: Log out");
-        int choice = session.inputScanner.nextInt();
-        if(choice == 1){
-            CourseManagement.viewCourse(this);
+        Course[] course = session.getCourseList();
+        while (true) {
+            System.out.println("1: View Courses  2: Log out");
+            int choice = session.inputScanner.nextInt();
+
+            if (choice == 1) {
+                CourseManagement.viewCourse(this);
+                if (this.getName().equals("A")) {
+                    System.out.println("\nPress 0 to go back");
+                    System.out.print("Enter Your Choice : ");
+
+                    int select = session.inputScanner.nextInt();
+                    if (select == 1) {
+                        Course.viewStudentList(course[0]);
+                    } else if (select == 2) {
+                        Course.viewStudentList(course[1]);
+                    } else if (select == 3) {
+                        Course.viewStudentList(course[3]);
+                    } else if (select == 4) {
+                        Course.viewStudentList(course[4]);
+                    }
+                    else if(select==0){
+                        return;
+                    }
+                } else if (this.getName().equals("B")) {
+                    System.out.println("\nPress 0 to go back");
+                    System.out.print("Enter Your Choice : ");
+                    int select = session.inputScanner.nextInt();
+                    if (select == 1) {
+                        Course.viewStudentList(course[2]);
+                    } else if (select == 2) {
+                        Course.viewStudentList(course[5]);
+                    }
+                    else if(select==0){
+                        return;
+                    }
+                }
+            }
+            else if(choice==2){
+                return;
+            }
         }
     }
     @Override
@@ -26,7 +63,7 @@ public class Assistant extends User implements Action{
             int j = 1;
             for (Course value : course) {
                 if (value.getTA().equals("A")) {
-                    System.out.print((j) + ". " + value.getCourseName() + " ");
+                    System.out.print((j) + ". " + value.getCourseName() + "."+value.getSection()+" ");
                     j++;
                 }
             }
@@ -34,7 +71,7 @@ public class Assistant extends User implements Action{
             int j = 1;
             for (Course value : course) {
                 if (value.getTA().equals("B")) {
-                    System.out.print((j) + ". " + value.getCourseName() +" ");
+                    System.out.print((j) + ". " + value.getCourseName() +"."+value.getSection()+" ");
                     j++;
                 }
             }

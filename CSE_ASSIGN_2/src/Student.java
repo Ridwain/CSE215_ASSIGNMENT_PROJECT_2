@@ -66,7 +66,7 @@ public class Student extends User implements Action {
         int i;
         for (i = 0; i < courseListForStudent1.length; i++) {
             if (courseListForStudent1[i] != null) {
-                System.out.println((i) + ". Course Name : " + courseListForStudent1[i].getCourseName() + "." + courseListForStudent1[i].getSection());
+                System.out.println((i+1) + ". Course Name : " + courseListForStudent1[i].getCourseName() + "." + courseListForStudent1[i].getSection());
             }
         }
     }

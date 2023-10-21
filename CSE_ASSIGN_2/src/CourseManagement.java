@@ -104,7 +104,7 @@ public class CourseManagement {
             if (choice2 == 1) {
                 System.out.println("Course Index to be Removed : ");
                 int courseIndex = session.inputScanner.nextInt();
-                removeCourse(user, courses[courseIndex]);
+                removeCourse(user, courses[courseIndex-1]);
             }
             else if(choice2==2){
                 return true;

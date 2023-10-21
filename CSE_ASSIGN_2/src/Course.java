@@ -211,42 +211,42 @@ public class Course {
         if(course.getCourseName().equals("Course A") && course.getSection().equals("1")) {
             for (i = 0; i < studentsCourseA1.length; i++) {
                 if (studentsCourseA1[i] != null) {
-                    System.out.println(i + ". " + studentsCourseA1[i]);
+                    System.out.println(i + ". Student " + studentsCourseA1[i]);
                 }
             }
         }
         else if(course.getCourseName().equals("Course A") && course.getSection().equals("2")){
             for (i = 0; i < studentsCourseA2.length; i++) {
                 if (studentsCourseA2[i] != null) {
-                    System.out.println(i + ". " + studentsCourseA2[i]);
+                    System.out.println(i + ". Student " + studentsCourseA2[i]);
                 }
             }
         }
         else if(course.getCourseName().equals("Course A") && course.getSection().equals("3")){
             for (i = 0; i < studentsCourseA3.length; i++) {
                 if (studentsCourseA3[i] != null) {
-                    System.out.println(i + ". " + studentsCourseA3[i]);
+                    System.out.println(i + ". Student " + studentsCourseA3[i]);
                 }
             }
         }
         else if(course.getCourseName().equals("Course B") && course.getSection().equals("1")){
             for (i = 0; i < studentsCourseB1.length; i++) {
                 if (studentsCourseB1[i] != null) {
-                    System.out.println(i + ". " + studentsCourseB1[i]);
+                    System.out.println(i + ". Student " + studentsCourseB1[i]);
                 }
             }
         }
         else if(course.getCourseName().equals("Course C") && course.getSection().equals("1")){
             for (i = 0; i < studentsCourseC1.length; i++) {
                 if (studentsCourseC1[i] != null) {
-                    System.out.println(i + ". " + studentsCourseC1[i]);
+                    System.out.println(i + ". Student " + studentsCourseC1[i]);
                 }
             }
         }
         else if(course.getCourseName().equals("Course C") && course.getSection().equals("2")){
             for (i = 0; i < studentsCourseC2.length; i++) {
                 if (studentsCourseC2[i] != null) {
-                    System.out.println(i + ". " + studentsCourseC2[i]);
+                    System.out.println(i + ". Student " + studentsCourseC2[i]);
                 }
             }
         }
