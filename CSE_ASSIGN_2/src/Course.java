@@ -115,16 +115,13 @@ public class Course {
         for(int i=0;i<courseList.length;i++){
             if(courseList[i]!=null) {
                 if (courseList[i].equals(student.getName())) {
-//                    removeCourse(student,courseList[i]);
                     courseList[i] = null;
                     removeStudent(student);
-
                     return;
                 }
             }
         }
     }
-
     public static void removeCourse(Student student,Course course){
         int i;
         switch (student.getName()) {
@@ -157,7 +154,6 @@ public class Course {
         }
 
     }
-
     public static  int checkNullForStudentList(String[] studentsCourse){
         int flag=0;
         for(int i=0;i<studentsCourse.length;i++){
@@ -248,10 +244,7 @@ public class Course {
                     System.out.println("No Student To Show");
                 }
             }
-
-
     }
-
 }
 
 
