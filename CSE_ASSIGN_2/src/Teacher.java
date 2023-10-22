@@ -27,7 +27,6 @@ public class Teacher extends User implements Action{
                     if (select == 1) {
                             Course.viewStudentList(courses[0]);
                             Course.sendingStudentToRemove(Course.studentsCourseA1);
-
                     } else if (select == 2) {
                         Course.viewStudentList(courses[2]);
                         Course.sendingStudentToRemove(Course.studentsCourseA3);
@@ -39,7 +38,7 @@ public class Teacher extends User implements Action{
                         Course.sendingStudentToRemove(Course.studentsCourseC2);
                     }
                     else if(select==0){
-                        return;
+                        continue;
                     }
                 } else if (this.getName().equals("B")) {
                     System.out.println("\nPress 0 to go back");

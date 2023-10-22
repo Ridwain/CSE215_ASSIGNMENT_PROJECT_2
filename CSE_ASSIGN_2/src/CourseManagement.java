@@ -6,7 +6,6 @@ public class CourseManagement {
             String email = session.inputScanner.next();
             System.out.print("Enter Your Password : ");
             String password = session.inputScanner.next();
-
             try {
                 User user = login(email,password);
                 if(user instanceof Student){
@@ -24,7 +23,6 @@ public class CourseManagement {
            
         }
     }
-
     // Login Method for everyone...
     public static User login(String email,String password)throws Exception{
         Session session = Session.getSession();
@@ -43,18 +41,11 @@ public class CourseManagement {
         else{
             throw new Exception("User not Found");
         }
-
     }
-
     // Add course method for students-->>
     public static void addCourse(Student student,Course course){
         Student.addCourse(student,course);
     }
-
-
-
-
-
     // View Course Method For ALL USERS-->>
     public static void viewCourse(User user){
         if(user instanceof Student){
@@ -79,15 +70,12 @@ public class CourseManagement {
                     }
                 }
             }
-
         } else if (user instanceof Teacher) {
             ((Teacher)user).viewCourse(user);
         } else if (user instanceof Assistant) {
             ((Assistant)user).viewCourse(user);
         }
-
     }
-
     private static boolean selectCourseToBeRemoved(Student user, Session session, Course[] courses, int isEmpty) {
         if (isEmpty == 0) {
             System.out.println("No Courses To Show\n1: BACK");
@@ -96,7 +84,6 @@ public class CourseManagement {
                 return true;
             } else {
                 System.out.println("Wrong input !!!Please Try Again");
-                //continue;
             }
         } else {
             System.out.println("\n1: Remove Course  2: Back");

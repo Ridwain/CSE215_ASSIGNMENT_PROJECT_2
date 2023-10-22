@@ -73,106 +73,6 @@ public class Course {
     public void setTA(String tA) {
         this.tA = tA;
     }
-    public static void addStudentForStudent(Student student,Course[] course) {
-        for(int i=0;i<course.length;i++){
-            if(course[i]!=null) {
-                if (course[i].getSection().equals("1") && course[i].getCourseName().equals("Course A")) {
-                    int flag = checkStudent(studentsCourseA1,student.getName());
-                    if(flag==0) {
-                        for (int j = 0; j < studentsCourseA1.length; j++) {
-                            if (studentsCourseA1[j] == null) {
-                                studentsCourseA1[j] = student.getName();
-                                break;
-                            } else {
-                                continue;
-                            }
-                        }
-                    }
-                    else{
-                        continue;
-                    }
-                } else if (course[i].getSection().equals("2") && course[i].getCourseName().equals("Course A")) {
-                    int flag = checkStudent(studentsCourseA2,student.getName());
-                    if(flag==0) {
-                        for (int j = 0; j < studentsCourseA2.length; j++) {
-                            if (studentsCourseA2[j] == null) {
-                                studentsCourseA2[j] = student.getName();
-                                break;
-                            } else {
-                                continue;
-                            }
-                        }
-                    }
-                    else{
-                        continue;
-                    }
-                } else if (course[i].getSection().equals("3") && course[i].getCourseName().equals("Course A")) {
-                    int flag = checkStudent(studentsCourseA3,student.getName());
-                    if(flag==0) {
-                        for (int j = 0; j < studentsCourseA3.length; j++) {
-                            if (studentsCourseA3[j] == null) {
-                                studentsCourseA3[j] = student.getName();
-                                break;
-                            } else {
-                                continue;
-                            }
-                        }
-                    }
-                    else{
-                        continue;
-
-                    }
-                } else if (course[i].getSection().equals("1") && course[i].getCourseName().equals("Course B")) {
-                    int flag = checkStudent(studentsCourseB1,student.getName());
-                    if(flag==0) {
-                        for (int j = 0; j < studentsCourseB1.length; j++) {
-                            if (studentsCourseB1[j] == null) {
-                                studentsCourseB1[j] = student.getName();
-                                break;
-                            } else {
-                                continue;
-                            }
-                        }
-                    }
-                    else {
-                        continue;
-                    }
-                } else if (course[i].getSection().equals("1") && course[i].getCourseName().equals("Course C")) {
-                    int flag = checkStudent(studentsCourseC1,student.getName());
-                    if(flag==0) {
-                        for (int j = 0; j < studentsCourseC1.length; j++) {
-                            if (studentsCourseC1[j] == null) {
-                                studentsCourseC1[j] = student.getName();
-                                break;
-                            } else {
-                                continue;
-                            }
-                        }
-                    }
-                    else{
-                        continue;
-                    }
-                } else if (course[i].getSection().equals("2") && course[i].getCourseName().equals("Course C")) {
-                    int flag = checkStudent(studentsCourseC2,student.getName());
-                    if(flag==0) {
-                        for (int j = 0; j < studentsCourseC2.length; j++) {
-                            if (studentsCourseC2[j] == null) {
-                                studentsCourseC2[j] = student.getName();
-                                break;
-                            } else {
-                                continue;
-                            }
-                        }
-                    }
-                    else{
-                        continue;
-                    }
-                }
-            }
-
-        }
-
-    }
     public static void addStudent(Student student){
         Session session = Session.getSession();
         if(student.getName().equals("A")){
@@ -183,6 +83,45 @@ public class Course {
         }
         else if(student.getName().equals("C")) {
             addStudentForStudent(student,student.getCourseListForStudent3());
+        }
+    }
+    public static void addStudentForStudent(Student student,Course[] course) {
+        for(int i=0;i<course.length;i++){
+            if(course[i]!=null) {
+                if (course[i].getSection().equals("1") && course[i].getCourseName().equals("Course A")) {
+                    add1(student, studentsCourseA1);
+                    continue;
+                } else if (course[i].getSection().equals("2") && course[i].getCourseName().equals("Course A")) {
+                    add1(student, studentsCourseA2);
+                } else if (course[i].getSection().equals("3") && course[i].getCourseName().equals("Course A")) {
+                    add1(student, studentsCourseA3);
+                } else if (course[i].getSection().equals("1") && course[i].getCourseName().equals("Course B")) {
+                    add1(student, studentsCourseB1);
+                } else if (course[i].getSection().equals("1") && course[i].getCourseName().equals("Course C")) {
+                    add1(student, studentsCourseC1);
+                } else if (course[i].getSection().equals("2") && course[i].getCourseName().equals("Course C")) {
+                    add1(student, studentsCourseC2);
+                }
+            }
+
+        }
+
+    }
+
+    private static void add1(Student student, String[] studentsCourse) {
+        int flag = checkStudent(studentsCourse,student.getName());
+        if(flag==0) {
+            for (int j = 0; j < studentsCourse.length; j++) {
+                if (studentsCourse[j] == null) {
+                    studentsCourse[j] = student.getName();
+                    break;
+                } else {
+                    continue;
+                }
+            }
+        }
+        else{
+            return;
         }
     }
     public static int checkStudent(String[] studentsCourse,String student){
@@ -196,6 +135,30 @@ public class Course {
         return flag;
 
     }
+    public static void sendingStudentToRemove(String[] courseList){
+        Session session = Session.getSession();
+        User[] users = session.getUserList();
+        System.out.println("1. Remove Course  2. Back");
+        System.out.print("Enter Your Choice :> ");
+        int select = session.inputScanner.nextInt();
+        if(select==1) {
+            System.out.print("Index to be removed : ");
+            int choice = session.inputScanner.nextInt();
+            if (courseList[choice] != null) {
+                if (courseList[choice].equals("A")) {
+                    removeStudent((Student) users[0]);
+                } else if (courseList[choice].equals("B")) {
+                    removeStudent((Student) users[1]);
+                } else if (courseList[choice].equals("C")) {
+                    removeStudent((Student) users[2]);
+                }
+            } else {
+                return;
+            }
+        } else if(select == 2){
+            return;
+        }
+    }
     public static void removeStudent(Student student){
         int i;
         for(i=0;i<studentsCourseA1.length;i++){
@@ -203,7 +166,7 @@ public class Course {
                 if (studentsCourseA1[i].equals(student.getName())) {
                     System.out.println("Student "+studentsCourseA1[i]+" Successfully Removed From The Course A.1");
                     studentsCourseA1[i] = null;
-                    break;
+                    return;
                 }
             }
         }
@@ -212,7 +175,7 @@ public class Course {
                 if (studentsCourseA2[i].equals(student.getName())) {
                     System.out.println("Student "+studentsCourseA2[i]+" Successfully Removed From The Course A.2");
                     studentsCourseA2[i] = null;
-                    break;
+                    return;
                 }
             }
         }
@@ -221,7 +184,7 @@ public class Course {
                 if (studentsCourseA3[i].equals(student.getName())) {
                     System.out.println("Student "+studentsCourseA3[i]+" Successfully Removed From The Course A.3");
                     studentsCourseA3[i] = null;
-                    break;
+                    return;
                 }
             }
         }
@@ -230,7 +193,7 @@ public class Course {
                 if (studentsCourseB1[i].equals(student.getName())) {
                     System.out.println("Student "+studentsCourseB1[i]+" Successfully Removed From The Course B.1");
                     studentsCourseB1[i] = null;
-                    break;
+                    return;
                 }
             }
         }
@@ -239,20 +202,21 @@ public class Course {
                 if (studentsCourseC1[i].equals(student.getName())) {
                     System.out.println("Student "+studentsCourseC1[i]+" Successfully Removed From The Course C.1");
                     studentsCourseC1[i] = null;
-                    break;
+                    return;
                 }
             }
         }
         for(i=0;i<studentsCourseC2.length;i++){
             if(studentsCourseC2[i]!=null) {
                 if (studentsCourseC2[i].equals(student.getName())) {
-                    System.out.println("Student "+studentsCourseC1[i]+" Successfully Removed From The Course C.2");
+                    System.out.println("Student "+studentsCourseC2[i]+" Successfully Removed From The Course C.2");
                     studentsCourseC2[i] = null;
-                    break;
+                    return;
                 }
             }
         }
     }
+
     public static  int checkNullForStudentList(String[] studentsCourse){
         int flag=0;
         for(int i=0;i<studentsCourse.length;i++){
@@ -346,30 +310,7 @@ public class Course {
 
 
     }
-    public static void sendingStudentToRemove(String[] courseList){
-        Session session = Session.getSession();
-        User[] users = session.getUserList();
-        System.out.println("1. Remove Course  2. Back");
-        System.out.print("Enter Your Choice :> ");
-        int select = session.inputScanner.nextInt();
-        if(select==1) {
-            System.out.print("Index to be removed : ");
-            int choice = session.inputScanner.nextInt();
-            if (courseList[choice] != null) {
-                if (courseList[choice].equals("A")) {
-                    removeStudent((Student) users[0]);
-                } else if (courseList[choice].equals("B")) {
-                    removeStudent((Student) users[1]);
-                } else if (courseList[choice].equals("C")) {
-                    removeStudent((Student) users[2]);
-                }
-            } else {
-                return;
-            }
-        } else if(select == 2){
-            return;
-        }
-    }
+
 }
 
 

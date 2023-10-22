@@ -4,10 +4,6 @@ public class Student extends User implements Action {
     public static Course[] courseListForStudent2 = new Course[5];
     public static Course[] courseListForStudent3 = new Course[5];
     CourseManagement manager;
-
-    public Student() {
-
-    }
     public Student(String email, String password, String id, String name, String studentCgpa) {
         this.setEmail(email);
         this.setPassword(password);
@@ -78,7 +74,6 @@ public class Student extends User implements Action {
             if(courses[i]!=null){
                 flag=1;
                 return flag;
-
             }
         }
         return flag;
@@ -87,7 +82,6 @@ public class Student extends User implements Action {
 
     // Add Course Method
     public static void addCourse(Student student, Course course) {
-        //int i;
         switch (student.getName()) {
             case "A" -> {
                 checkingForDuplicateCourseAndTimeClashing(student,course, courseListForStudent1);
@@ -102,7 +96,6 @@ public class Student extends User implements Action {
                 Course.addStudent(student);
             }
         }
-
     }
 
     private static void checkingForDuplicateCourseAndTimeClashing(Student student,Course course, Course[] courseListForStudent) {
