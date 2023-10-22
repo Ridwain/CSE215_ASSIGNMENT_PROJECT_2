@@ -20,7 +20,6 @@ public class CourseManagement {
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
-           
         }
     }
     // Login Method for everyone...

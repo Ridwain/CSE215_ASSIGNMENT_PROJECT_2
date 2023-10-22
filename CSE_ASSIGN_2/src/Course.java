@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 public class Course {
     private String index;
     private String courseName;
@@ -7,12 +5,12 @@ public class Course {
     private String timing;
     private String teacher;
     private String tA;
-    static String[] studentsCourseA1 = new String[5];
-    static String[] studentsCourseA2 = new String[5];
-    static String[] studentsCourseA3 = new String[5];
-    static String[] studentsCourseB1 = new String[5];
-    static String[] studentsCourseC1 = new String[5];
-    static String[] studentsCourseC2 = new String[5];
+    static String[] studentsCourseA1 = new String[5]; //students in course A.1
+    static String[] studentsCourseA2 = new String[5]; //students in course A.2
+    static String[] studentsCourseA3 = new String[5]; //students in course A.3
+    static String[] studentsCourseB1 = new String[5]; //students in course B.1
+    static String[] studentsCourseC1 = new String[5]; //students in course C.1
+    static String[] studentsCourseC2 = new String[5]; //students in course C.2
     public Course(){
 
     }
@@ -23,66 +21,40 @@ public class Course {
         this.timing = timing;
         this.teacher = teacher;
         this.tA = tA;
-
     }
-
-    public String getIndex() {
-        return index;
-    }
-
-    public void setIndex(String index) {
-        this.index = index;
-    }
-
     public String getSection() {
         return section;
-    }
-
-    public void setSection(String section) {
-        this.section = section;
     }
 
     public String getTiming() {
         return timing;
     }
 
-    public void setTiming(String timing) {
-        this.timing = timing;
-    }
-
     public String getTeacher() {
         return teacher;
     }
 
-    public void setTeacher(String teacher) {
-        this.teacher = teacher;
-    }
+
 
     public String getCourseName() {
         return courseName;
     }
 
-    public void setCourseName(String courseName) {
-        this.courseName = courseName;
-    }
 
     public String getTA() {
         return tA;
     }
 
-    public void setTA(String tA) {
-        this.tA = tA;
-    }
     public static void addStudent(Student student){
-        Session session = Session.getSession();
+        //Session session = Session.getSession();
         if(student.getName().equals("A")){
-            addStudentForStudent(student,student.getCourseListForStudent1());
+            addStudentForStudent(student,Student.getCourseListForStudent1());
         }
         else if(student.getName().equals("B")){
-            addStudentForStudent(student,student.getCourseListForStudent2());
+            addStudentForStudent(student,Student.getCourseListForStudent2());
         }
         else if(student.getName().equals("C")) {
-            addStudentForStudent(student,student.getCourseListForStudent3());
+            addStudentForStudent(student,Student.getCourseListForStudent3());
         }
     }
     public static void addStudentForStudent(Student student,Course[] course) {
@@ -134,84 +106,57 @@ public class Course {
             }
         }
         return flag;
-
     }
 
     public static void removeStudent(Student student){
-
+        System.out.print("Student "+student.getName()+" Successfully Removed From The Course");
     }
     public static void sendingStudentToRemove(String[] courseList,Student student){
+        for(int i=0;i<courseList.length;i++){
+            if(courseList[i]!=null) {
+                if (courseList[i].equals(student.getName())) {
+//                    removeCourse(student,courseList[i]);
+                    courseList[i] = null;
+                    removeStudent(student);
+
+                    return;
+                }
+            }
+        }
+    }
+
+    public static void removeCourse(Student student,Course course){
+        int i;
+        switch (student.getName()) {
+            case "A" -> {
+                for (i = 0; i < Student.courseListForStudent1.length; i++) {
+                    if (Student.courseListForStudent1[i] == course) {
+                        Student.courseListForStudent1[i] = null;
+                        break;
+                    }
+                }
+            }
+            case "B" -> {
+                for (i = 0; i < Student.courseListForStudent2.length; i++) {
+                    if (Student.courseListForStudent2[i] == course) {
+                        //System.out.println(courseListForStudent2[i].getCourseName() + "." + courseListForStudent2[i].getSection() + " is removed successfully");
+                        Student.courseListForStudent2[i] = null;
+                        break;
+                    }
+                }
+            }
+            case "C" -> {
+                for (i = 0; i < Student.courseListForStudent3.length; i++) {
+                    if (Student.courseListForStudent3[i] == course) {
+                        //System.out.println(courseListForStudent3[i].getCourseName() + "." + courseListForStudent3[i].getSection() + " is removed successfully");
+                        Student.courseListForStudent3[i] = null;
+                        break;
+                    }
+                }
+            }
+        }
 
     }
-//    public static  void removeStudent1(Student student,String[] courses){
-//        int i;
-//        for(i=0;i<studentsCourseA1.length;i++){
-//            if(studentsCourseA1[i]!=null) {
-//                if (studentsCourseA1[i].equals(student.getName())) {
-//                    System.out.println("Student "+studentsCourseA1[i]+" Successfully Removed From The Course A.1");
-//                    studentsCourseA1[i] = null;
-//                    return;
-//                }
-//            }
-//        }
-//    }
-//    public static void removeStudent(Student student){
-//        int i;
-//        for(i=0;i<studentsCourseA1.length;i++){
-//            if(studentsCourseA1[i]!=null) {
-//                if (studentsCourseA1[i].equals(student.getName())) {
-//                    System.out.println("Student "+studentsCourseA1[i]+" Successfully Removed From The Course A.1");
-//                    studentsCourseA1[i] = null;
-//                    return;
-//                }
-//            }
-//        }
-//        for(i=0;i<studentsCourseA2.length;i++){
-//            if(studentsCourseA2[i]!=null) {
-//                if (studentsCourseA2[i].equals(student.getName())) {
-//                    System.out.println("Student "+studentsCourseA2[i]+" Successfully Removed From The Course A.2");
-//                    studentsCourseA2[i] = null;
-//                    return;
-//                }
-//            }
-//        }
-//        for(i=0;i<studentsCourseA3.length;i++){
-//            if(studentsCourseA3[i]!=null) {
-//                if (studentsCourseA3[i].equals(student.getName())) {
-//                    System.out.println("Student "+studentsCourseA3[i]+" Successfully Removed From The Course A.3");
-//                    studentsCourseA3[i] = null;
-//                    return;
-//                }
-//            }
-//        }
-//        for(i=0;i<studentsCourseB1.length;i++){
-//            if(studentsCourseB1[i]!=null) {
-//                if (studentsCourseB1[i].equals(student.getName())) {
-//                    System.out.println("Student "+studentsCourseB1[i]+" Successfully Removed From The Course B.1");
-//                    studentsCourseB1[i] = null;
-//                    return;
-//                }
-//            }
-//        }
-//        for(i=0;i<studentsCourseC1.length;i++){
-//            if(studentsCourseC1[i]!=null) {
-//                if (studentsCourseC1[i].equals(student.getName())) {
-//                    System.out.println("Student "+studentsCourseC1[i]+" Successfully Removed From The Course C.1");
-//                    studentsCourseC1[i] = null;
-//                    return;
-//                }
-//            }
-//        }
-//        for(i=0;i<studentsCourseC2.length;i++){
-//            if(studentsCourseC2[i]!=null) {
-//                if (studentsCourseC2[i].equals(student.getName())) {
-//                    System.out.println("Student "+studentsCourseC2[i]+" Successfully Removed From The Course C.2");
-//                    studentsCourseC2[i] = null;
-//                    return;
-//                }
-//            }
-//        }
-//    }
 
     public static  int checkNullForStudentList(String[] studentsCourse){
         int flag=0;
@@ -291,7 +236,7 @@ public class Course {
                     System.out.println("No Student To Show");
                 }
             } else if (course.getCourseName().equals("Course C") && course.getSection().equals("2")) {
-                int flag=0;
+                int flag;
                 flag = checkNullForStudentList(studentsCourseC2);
                 if(flag==1) {
                     for (i = 0; i < studentsCourseC2.length; i++) {

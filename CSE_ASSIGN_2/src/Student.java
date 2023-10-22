@@ -1,6 +1,6 @@
 public class Student extends User implements Action {
     //static String[][] student1CourseData = new String[3][4];
-    private static Course[] courseListForStudent1 = new Course[5];
+    public static Course[] courseListForStudent1 = new Course[5];
     public static Course[] courseListForStudent2 = new Course[5];
     public static Course[] courseListForStudent3 = new Course[5];
     CourseManagement manager;

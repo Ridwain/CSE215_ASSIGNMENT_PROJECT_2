@@ -25,16 +25,119 @@ public class Teacher extends User implements Action{
                     System.out.print("Enter Your Choice : ");
                     int select = session.inputScanner.nextInt();
                     if (select == 1) {
-                            Course.viewStudentList(courses[0]);
+                        Course.viewStudentList(courses[0]);
+                        System.out.println("1. Remove Student  2. Back");
+                            int choice1= session.inputScanner.nextInt();
+                            if(choice1==1){
+                                System.out.println("Index to be Removed :");
+                                int choice2 = session.inputScanner.nextInt();
+                                switch (Course.studentsCourseA1[choice2]) {
+                                    case "A" -> {
+                                        Course.sendingStudentToRemove(Course.studentsCourseA1, (Student) users[0]);
+                                        System.out.println(" A.1");
+                                        Course.removeCourse((Student) users[0],courses[0]);
+                                    }
+                                    case "B" -> {
+                                        Course.sendingStudentToRemove(Course.studentsCourseA1, (Student) users[1]);
+                                        System.out.println(" A.1");
+                                        Course.removeCourse((Student) users[1],courses[0]);
+                                    }
+                                    case "C" -> {
+                                        Course.sendingStudentToRemove(Course.studentsCourseA1, (Student) users[2]);
+                                        System.out.println(" A.1");
+                                        Course.removeCourse((Student) users[2],courses[0]);
+                                    }
+                                }
+                            }else if(choice1==2){
+                                continue;
+                            }
+                            else{
+                                continue;
+                            }
 
                     } else if (select == 2) {
                         Course.viewStudentList(courses[2]);
+                        System.out.println("1. Remove Student  2. Back");
+                        int choice1= session.inputScanner.nextInt();
+                        if(choice1==1){
+                            System.out.println("Index to be Removed :");
+                            int choice2 = session.inputScanner.nextInt();
+                            switch (Course.studentsCourseA3[choice2]) {
+                                case "A" -> {
+                                    Course.sendingStudentToRemove(Course.studentsCourseA3, (Student) users[0]);
+                                    System.out.println(" A.3");
+                                    Course.removeCourse((Student) users[0],courses[2]);
+                                }
+                                case "B" -> {
+                                    Course.sendingStudentToRemove(Course.studentsCourseA3, (Student) users[1]);
+                                    System.out.println(" A.3");
+                                    Course.removeCourse((Student) users[1],courses[2]);
+                                }
+                                case "C" -> {
+                                    Course.sendingStudentToRemove(Course.studentsCourseA3, (Student) users[2]);
+                                    System.out.println(" A.3");
+                                    Course.removeCourse((Student) users[2],courses[0]);
+                                }
+                            }
+                        }else if(choice1==2){
+                            continue;
+                        }
 
                     } else if (select == 3) {
                         Course.viewStudentList(courses[3]);
+                        System.out.println("1. Remove Student  2. Back");
+                        int choice1= session.inputScanner.nextInt();
+                        if(choice1==1){
+                            System.out.println("Index to be Removed :");
+                            int choice2 = session.inputScanner.nextInt();
+                            switch (Course.studentsCourseB1[choice2]) {
+                                case "A" -> {
+                                    Course.sendingStudentToRemove(Course.studentsCourseB1, (Student) users[0]);
+                                    System.out.println(" B.1");
+                                    Course.removeCourse((Student) users[0],courses[3]);
+                                }
+                                case "B" -> {
+                                    Course.sendingStudentToRemove(Course.studentsCourseB1, (Student) users[1]);
+                                    System.out.println(" B.1");
+                                    Course.removeCourse((Student) users[1],courses[3]);
+                                }
+                                case "C" -> {
+                                    Course.sendingStudentToRemove(Course.studentsCourseB1, (Student) users[2]);
+                                    System.out.println(" B.1");
+                                    Course.removeCourse((Student) users[2],courses[3]);
+                                }
+                            }
+                        }else if(choice1==2){
+                            continue;
+                        }
 
                     } else if (select == 4) {
                         Course.viewStudentList(courses[5]);
+                        System.out.println("1. Remove Student  2. Back");
+                        int choice1= session.inputScanner.nextInt();
+                        if(choice1==1){
+                            System.out.println("Index to be Removed :");
+                            int choice2 = session.inputScanner.nextInt();
+                            switch (Course.studentsCourseC2[choice2]) {
+                                case "A" -> {
+                                    Course.sendingStudentToRemove(Course.studentsCourseC2, (Student) users[0]);
+                                    System.out.println(" C.2");
+                                    Course.removeCourse((Student) users[0],courses[5]);
+                                }
+                                case "B" -> {
+                                    Course.sendingStudentToRemove(Course.studentsCourseC2, (Student) users[1]);
+                                    System.out.println(" C.2");
+                                    Course.removeCourse((Student) users[1],courses[5]);
+                                }
+                                case "C" -> {
+                                    Course.sendingStudentToRemove(Course.studentsCourseC2, (Student) users[2]);
+                                    System.out.println(" C.2");
+                                    Course.removeCourse((Student) users[2],courses[5]);
+                                }
+                            }
+                        }else if(choice1==2){
+                            continue;
+                        }
 
                     }
                     else if(select==0){
@@ -46,10 +149,60 @@ public class Teacher extends User implements Action{
                     int select = session.inputScanner.nextInt();
                     if (select == 1) {
                         Course.viewStudentList(courses[1]);
+                        System.out.println("1. Remove Student  2. Back");
+                        int choice1= session.inputScanner.nextInt();
+                        if(choice1==1){
+                            System.out.println("Index to be Removed :");
+                            int choice2 = session.inputScanner.nextInt();
+                            switch (Course.studentsCourseA2[choice2]) {
+                                case "A" -> {
+                                    Course.sendingStudentToRemove(Course.studentsCourseA2, (Student) users[0]);
+                                    System.out.println(" A.2");
+                                    Course.removeCourse((Student) users[0],courses[1]);
+                                }
+                                case "B" -> {
+                                    Course.sendingStudentToRemove(Course.studentsCourseA2, (Student) users[1]);
+                                    System.out.println(" A.2");
+                                    Course.removeCourse((Student) users[1],courses[1]);
+                                }
+                                case "C" -> {
+                                    Course.sendingStudentToRemove(Course.studentsCourseA2, (Student) users[2]);
+                                    System.out.println(" A.2");
+                                    Course.removeCourse((Student) users[2],courses[1]);
+                                }
+                            }
+                        }else if(choice1==2){
+                            continue;
+                        }
 
                     } else if (select == 2) {
                         Course.viewStudentList(courses[4]);
-
+                        System.out.println("1. Remove Student  2. Back");
+                        int choice1= session.inputScanner.nextInt();
+                        if(choice1==1){
+                            System.out.println("Index to be Removed :");
+                            int choice2 = session.inputScanner.nextInt();
+                            switch (Course.studentsCourseC1[choice2]) {
+                                case "A" -> {
+                                    Course.sendingStudentToRemove(Course.studentsCourseC1, (Student) users[0]);
+                                    System.out.println(" C.1");
+                                    Course.removeCourse((Student) users[0],courses[4]);
+                                }
+                                case "B" -> {
+                                    Course.sendingStudentToRemove(Course.studentsCourseC1, (Student) users[1]);
+                                    System.out.println(" C.1");
+                                    Course.removeCourse((Student) users[1],courses[4]);
+                                }
+                                case "C" -> {
+                                    Course.sendingStudentToRemove(Course.studentsCourseC1, (Student) users[2]);
+                                    System.out.println(" C.1");
+                                    Course.removeCourse((Student) users[2],courses[4]);
+                                }
+                            }
+                        }
+                        else if(choice1==2){
+                            continue;
+                        }
                     }
                     else if(select==0){
                         continue;
@@ -61,6 +214,7 @@ public class Teacher extends User implements Action{
             }
         }
     }
+
     @Override
     public void viewCourse(User user) {
         Session session = Session.getSession();
