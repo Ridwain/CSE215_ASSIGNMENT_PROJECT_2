@@ -26,16 +26,16 @@ public class Teacher extends User implements Action{
                     int select = session.inputScanner.nextInt();
                     if (select == 1) {
                             Course.viewStudentList(courses[0]);
-                            Course.sendingStudentToRemove(Course.studentsCourseA1);
+
                     } else if (select == 2) {
                         Course.viewStudentList(courses[2]);
-                        Course.sendingStudentToRemove(Course.studentsCourseA3);
+
                     } else if (select == 3) {
                         Course.viewStudentList(courses[3]);
-                        Course.sendingStudentToRemove(Course.studentsCourseB1);
+
                     } else if (select == 4) {
                         Course.viewStudentList(courses[5]);
-                        Course.sendingStudentToRemove(Course.studentsCourseC2);
+
                     }
                     else if(select==0){
                         continue;
@@ -46,10 +46,10 @@ public class Teacher extends User implements Action{
                     int select = session.inputScanner.nextInt();
                     if (select == 1) {
                         Course.viewStudentList(courses[1]);
-                        Course.sendingStudentToRemove(Course.studentsCourseA2);
+
                     } else if (select == 2) {
                         Course.viewStudentList(courses[4]);
-                        Course.sendingStudentToRemove(Course.studentsCourseC1);
+
                     }
                     else if(select==0){
                         continue;
