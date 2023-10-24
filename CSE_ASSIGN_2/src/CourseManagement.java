@@ -53,18 +53,18 @@ public class CourseManagement {
                 ((Student) user).viewCourse(user);
                 switch (user.getName()) {
                     case "A" -> {
-                        Course[] courses1 = Student.getCourseListForStudent1();
-                        int isEmpty = Student.checkNUll(Student.getCourseListForStudent1());
+                        Course[] courses1 = Student.courseListForStudent1;
+                        int isEmpty = Student.checkNUll(Student.courseListForStudent1);
                         if (selectCourseToBeRemoved((Student) user, session, courses1, isEmpty)) return;
                     }
                     case "B" -> {
-                        Course[] courses2 = Student.getCourseListForStudent2();
-                        int isEmpty = Student.checkNUll(Student.getCourseListForStudent2());
+                        Course[] courses2 = Student.courseListForStudent2;
+                        int isEmpty = Student.checkNUll(Student.courseListForStudent2);
                         if (selectCourseToBeRemoved((Student) user, session, courses2, isEmpty)) return;
                     }
                     case "C" -> {
-                        Course[] courses3 = Student.getCourseListForStudent3();
-                        int isEmpty = Student.checkNUll(Student.getCourseListForStudent3());
+                        Course[] courses3 = Student.courseListForStudent3;
+                        int isEmpty = Student.checkNUll(Student.courseListForStudent3);
                         if (selectCourseToBeRemoved((Student) user, session, courses3, isEmpty)) return;
                     }
                 }

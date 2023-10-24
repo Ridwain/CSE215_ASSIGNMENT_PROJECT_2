@@ -1,9 +1,10 @@
 public class Student extends User implements Action {
-    //static String[][] student1CourseData = new String[3][4];
     public static Course[] courseListForStudent1 = new Course[5];
     public static Course[] courseListForStudent2 = new Course[5];
     public static Course[] courseListForStudent3 = new Course[5];
-    CourseManagement manager;
+    public Student(){
+
+    }
     public Student(String email, String password, String id, String name, String studentCgpa) {
         this.setEmail(email);
         this.setPassword(password);
@@ -11,16 +12,6 @@ public class Student extends User implements Action {
         this.setName(name);
         this.setStudentCGPA(studentCgpa);
     }
-    public static Course[] getCourseListForStudent1(){
-        return courseListForStudent1;
-    }
-    public static Course[] getCourseListForStudent2(){
-        return courseListForStudent2;
-    }
-    public static Course[] getCourseListForStudent3(){
-        return courseListForStudent3;
-    }
-
     @Override
     public void handleActions() {
         while (true) {
@@ -39,10 +30,10 @@ public class Student extends User implements Action {
                 if (courseIndex == 0) {
                     continue;
                 } else {
-                    manager.addCourse(this, courses[courseIndex - 1]);
+                    CourseManagement.addCourse(this, courses[courseIndex - 1]);
                 }
             } else if (choice == 2) {
-                manager.viewCourse(this);
+                CourseManagement.viewCourse(this);
             } else if (choice == 3) {
                 break;
             }
@@ -58,11 +49,11 @@ public class Student extends User implements Action {
 
     }
     // For printing the Student's enrolled courses-->>
-    private void showingEnrolledCourses(Course[] courseListForStudent1,User user) {
+    private void showingEnrolledCourses(Course[] courseListForStudent,User user) {
         int i;
-        for (i = 0; i < courseListForStudent1.length; i++) {
-            if (courseListForStudent1[i] != null) {
-                System.out.println((i+1) + ". Course Name : " + courseListForStudent1[i].getCourseName() + "." + courseListForStudent1[i].getSection());
+        for (i = 0; i < courseListForStudent.length; i++) {
+            if (courseListForStudent[i] != null) {
+                System.out.println((i+1) + ". Course Name : " + courseListForStudent[i].getCourseName() + "." + courseListForStudent[i].getSection());
             }
         }
     }

@@ -1,8 +1,8 @@
 public abstract class User{
     private String email;
     private String password;
-    private String Id;
-    private String Name;
+    private String id;
+    private String name;
     private String studentCGPA;
     public User(){
 
@@ -26,24 +26,21 @@ public abstract class User{
 
 
     public String getId() {
-        return Id;
+        return id;
     }
 
     public void setId(String id) {
-        this.Id = id;
+        this.id = id;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        this.Name = name;
+        this.name = name;
     }
 
-    public String getStudentCGPA() {
-        return studentCGPA;
-    }
 
     public void setStudentCGPA(String studentCGPA) {
         this.studentCGPA = studentCGPA;

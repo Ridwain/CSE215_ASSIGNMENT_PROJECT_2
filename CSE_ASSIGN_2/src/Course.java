@@ -46,15 +46,10 @@ public class Course {
     }
 
     public static void addStudent(Student student){
-        //Session session = Session.getSession();
-        if(student.getName().equals("A")){
-            addStudentForStudent(student,Student.getCourseListForStudent1());
-        }
-        else if(student.getName().equals("B")){
-            addStudentForStudent(student,Student.getCourseListForStudent2());
-        }
-        else if(student.getName().equals("C")) {
-            addStudentForStudent(student,Student.getCourseListForStudent3());
+        switch (student.getName()) {
+            case "A" -> addStudentForStudent(student, Student.courseListForStudent1);
+            case "B" -> addStudentForStudent(student, Student.courseListForStudent2);
+            case "C" -> addStudentForStudent(student, Student.courseListForStudent3);
         }
     }
     public static void addStudentForStudent(Student student,Course[] course) {
@@ -108,9 +103,7 @@ public class Course {
         return flag;
     }
 
-    public static void removeStudent(Student student){
-        System.out.print("Student "+student.getName()+" Successfully Removed From The Course");
-    }
+
     public static void sendingStudentToRemove(String[] courseList,Student student){
         for(int i=0;i<courseList.length;i++){
             if(courseList[i]!=null) {
@@ -122,7 +115,10 @@ public class Course {
             }
         }
     }
-    public static void removeCourse(Student student,Course course){
+    public static void removeStudent(Student student){
+        System.out.print("Student "+student.getName()+" Successfully Removed From The Course");
+    }
+    public static void removeCourseForTeacher(Student student,Course course){
         int i;
         switch (student.getName()) {
             case "A" -> {
@@ -154,20 +150,10 @@ public class Course {
         }
 
     }
-    public static  int checkNullForStudentList(String[] studentsCourse){
-        int flag=0;
-        for(int i=0;i<studentsCourse.length;i++){
-            if(studentsCourse[i]!=null){
-                flag=1;
-                return flag;
-            }
-        }
-        return flag;
-    }
     public static void viewStudentList(Course course) {
         int i;
             if (course.getCourseName().equals("Course A") && course.getSection().equals("1")) {
-                int flag=0;
+                int flag;
                 flag = checkNullForStudentList(studentsCourseA1);
                 if(flag==1) {
                     for (i = 0; i < studentsCourseA1.length; i++) {
@@ -180,20 +166,9 @@ public class Course {
                     System.out.println("No Student");
                 }
             } else if (course.getCourseName().equals("Course A") && course.getSection().equals("2")) {
-                int flag=0;
-                flag = checkNullForStudentList(studentsCourseA2);
-                if(flag==1) {
-                    for (i = 0; i < studentsCourseA2.length; i++) {
-                        if (studentsCourseA2[i] != null) {
-                            System.out.println(i + ". Student " + studentsCourseA2[i]);
-                        }
-                    }
-                }
-                else {
-                    System.out.println("No Student To Show");
-                }
+                printingStudentList(studentsCourseA2);
             } else if (course.getCourseName().equals("Course A") && course.getSection().equals("3")) {
-                int flag=0;
+                int flag;
                 flag = checkNullForStudentList(studentsCourseA3);
                 if(flag==1) {
                     for (i = 0; i < studentsCourseA3.length; i++) {
@@ -206,44 +181,38 @@ public class Course {
                     System.out.println("No Students To Show");
                 }
             } else if (course.getCourseName().equals("Course B") && course.getSection().equals("1")) {
-                int flag=0;
-                flag = checkNullForStudentList(studentsCourseB1);
-                if(flag==1) {
-                    for (i = 0; i < studentsCourseB1.length; i++) {
-                        if (studentsCourseB1[i] != null) {
-                            System.out.println(i + ". Student " + studentsCourseB1[i]);
-                        }
-                    }
-                }
-                else{
-                    System.out.println("No Student To Show");
-                }
+                printingStudentList(studentsCourseB1);
             } else if (course.getCourseName().equals("Course C") && course.getSection().equals("1")) {
-                int flag=0;
-                flag = checkNullForStudentList(studentsCourseC1);
-                if(flag==1) {
-                    for (i = 0; i < studentsCourseC1.length; i++) {
-                        if (studentsCourseC1[i] != null) {
-                            System.out.println(i + ". Student " + studentsCourseC1[i]);
-                        }
-                    }
-                }
-                else{
-                    System.out.println("No Student To Show");
-                }
+                printingStudentList(studentsCourseC1);
             } else if (course.getCourseName().equals("Course C") && course.getSection().equals("2")) {
-                int flag;
-                flag = checkNullForStudentList(studentsCourseC2);
-                if(flag==1) {
-                    for (i = 0; i < studentsCourseC2.length; i++) {
-                        if (studentsCourseC2[i] != null) {
-                            System.out.println(i + ". Student " + studentsCourseC2[i]);
-                        }
-                    }
-                } else {
-                    System.out.println("No Student To Show");
+                printingStudentList(studentsCourseC2);
+            }
+    }
+    private static void printingStudentList(String[] studentsCourseA2) {
+        int i;
+        int flag;
+        flag = checkNullForStudentList(studentsCourseA2);
+        if(flag==1) {
+            for (i = 0; i < studentsCourseA2.length; i++) {
+                if (studentsCourseA2[i] != null) {
+                    System.out.println(i + ". Student " + studentsCourseA2[i]);
                 }
             }
+        }
+        else {
+            System.out.println("No Student To Show");
+        }
+    }
+
+    public static  int checkNullForStudentList(String[] studentsCourse){
+        int flag=0;
+        for(int i=0;i<studentsCourse.length;i++){
+            if(studentsCourse[i]!=null){
+                flag=1;
+                return flag;
+            }
+        }
+        return flag;
     }
 }
 

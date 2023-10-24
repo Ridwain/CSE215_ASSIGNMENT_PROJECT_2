@@ -35,17 +35,17 @@ public class Teacher extends User implements Action{
                                     case "A" -> {
                                         Course.sendingStudentToRemove(Course.studentsCourseA1, (Student) users[0]);
                                         System.out.println(" A.1");
-                                        Course.removeCourse((Student) users[0],courses[0]);
+                                        Course.removeCourseForTeacher((Student) users[0],courses[0]);
                                     }
                                     case "B" -> {
                                         Course.sendingStudentToRemove(Course.studentsCourseA1, (Student) users[1]);
                                         System.out.println(" A.1");
-                                        Course.removeCourse((Student) users[1],courses[0]);
+                                        Course.removeCourseForTeacher((Student) users[1],courses[0]);
                                     }
                                     case "C" -> {
                                         Course.sendingStudentToRemove(Course.studentsCourseA1, (Student) users[2]);
                                         System.out.println(" A.1");
-                                        Course.removeCourse((Student) users[2],courses[0]);
+                                        Course.removeCourseForTeacher((Student) users[2],courses[0]);
                                     }
                                 }
                             }else if(choice1==2){
@@ -66,17 +66,17 @@ public class Teacher extends User implements Action{
                                 case "A" -> {
                                     Course.sendingStudentToRemove(Course.studentsCourseA3, (Student) users[0]);
                                     System.out.println(" A.3");
-                                    Course.removeCourse((Student) users[0],courses[2]);
+                                    Course.removeCourseForTeacher((Student) users[0],courses[2]);
                                 }
                                 case "B" -> {
                                     Course.sendingStudentToRemove(Course.studentsCourseA3, (Student) users[1]);
                                     System.out.println(" A.3");
-                                    Course.removeCourse((Student) users[1],courses[2]);
+                                    Course.removeCourseForTeacher((Student) users[1],courses[2]);
                                 }
                                 case "C" -> {
                                     Course.sendingStudentToRemove(Course.studentsCourseA3, (Student) users[2]);
                                     System.out.println(" A.3");
-                                    Course.removeCourse((Student) users[2],courses[0]);
+                                    Course.removeCourseForTeacher((Student) users[2],courses[0]);
                                 }
                             }
                         }else if(choice1==2){
@@ -94,17 +94,17 @@ public class Teacher extends User implements Action{
                                 case "A" -> {
                                     Course.sendingStudentToRemove(Course.studentsCourseB1, (Student) users[0]);
                                     System.out.println(" B.1");
-                                    Course.removeCourse((Student) users[0],courses[3]);
+                                    Course.removeCourseForTeacher((Student) users[0],courses[3]);
                                 }
                                 case "B" -> {
                                     Course.sendingStudentToRemove(Course.studentsCourseB1, (Student) users[1]);
                                     System.out.println(" B.1");
-                                    Course.removeCourse((Student) users[1],courses[3]);
+                                    Course.removeCourseForTeacher((Student) users[1],courses[3]);
                                 }
                                 case "C" -> {
                                     Course.sendingStudentToRemove(Course.studentsCourseB1, (Student) users[2]);
                                     System.out.println(" B.1");
-                                    Course.removeCourse((Student) users[2],courses[3]);
+                                    Course.removeCourseForTeacher((Student) users[2],courses[3]);
                                 }
                             }
                         }else if(choice1==2){
@@ -122,17 +122,17 @@ public class Teacher extends User implements Action{
                                 case "A" -> {
                                     Course.sendingStudentToRemove(Course.studentsCourseC2, (Student) users[0]);
                                     System.out.println(" C.2");
-                                    Course.removeCourse((Student) users[0],courses[5]);
+                                    Course.removeCourseForTeacher((Student) users[0],courses[5]);
                                 }
                                 case "B" -> {
                                     Course.sendingStudentToRemove(Course.studentsCourseC2, (Student) users[1]);
                                     System.out.println(" C.2");
-                                    Course.removeCourse((Student) users[1],courses[5]);
+                                    Course.removeCourseForTeacher((Student) users[1],courses[5]);
                                 }
                                 case "C" -> {
                                     Course.sendingStudentToRemove(Course.studentsCourseC2, (Student) users[2]);
                                     System.out.println(" C.2");
-                                    Course.removeCourse((Student) users[2],courses[5]);
+                                    Course.removeCourseForTeacher((Student) users[2],courses[5]);
                                 }
                             }
                         }else if(choice1==2){
@@ -158,17 +158,17 @@ public class Teacher extends User implements Action{
                                 case "A" -> {
                                     Course.sendingStudentToRemove(Course.studentsCourseA2, (Student) users[0]);
                                     System.out.println(" A.2");
-                                    Course.removeCourse((Student) users[0],courses[1]);
+                                    Course.removeCourseForTeacher((Student) users[0],courses[1]);
                                 }
                                 case "B" -> {
                                     Course.sendingStudentToRemove(Course.studentsCourseA2, (Student) users[1]);
                                     System.out.println(" A.2");
-                                    Course.removeCourse((Student) users[1],courses[1]);
+                                    Course.removeCourseForTeacher((Student) users[1],courses[1]);
                                 }
                                 case "C" -> {
                                     Course.sendingStudentToRemove(Course.studentsCourseA2, (Student) users[2]);
                                     System.out.println(" A.2");
-                                    Course.removeCourse((Student) users[2],courses[1]);
+                                    Course.removeCourseForTeacher((Student) users[2],courses[1]);
                                 }
                             }
                         }else if(choice1==2){
@@ -186,17 +186,17 @@ public class Teacher extends User implements Action{
                                 case "A" -> {
                                     Course.sendingStudentToRemove(Course.studentsCourseC1, (Student) users[0]);
                                     System.out.println(" C.1");
-                                    Course.removeCourse((Student) users[0],courses[4]);
+                                    Course.removeCourseForTeacher((Student) users[0],courses[4]);
                                 }
                                 case "B" -> {
                                     Course.sendingStudentToRemove(Course.studentsCourseC1, (Student) users[1]);
                                     System.out.println(" C.1");
-                                    Course.removeCourse((Student) users[1],courses[4]);
+                                    Course.removeCourseForTeacher((Student) users[1],courses[4]);
                                 }
                                 case "C" -> {
                                     Course.sendingStudentToRemove(Course.studentsCourseC1, (Student) users[2]);
                                     System.out.println(" C.1");
-                                    Course.removeCourse((Student) users[2],courses[4]);
+                                    Course.removeCourseForTeacher((Student) users[2],courses[4]);
                                 }
                             }
                         }

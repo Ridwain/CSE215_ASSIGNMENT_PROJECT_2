@@ -1,6 +1,5 @@
 public class Assistant extends User implements Action{
     public Assistant(){
-
     }
     public Assistant(String email,String password,String id,String name){
         this.setEmail(email);
